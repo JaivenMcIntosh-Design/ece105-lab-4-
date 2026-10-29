@@ -1,0 +1,15 @@
+1. "Do your square-wave coefficients match Lecture 8's series?"
+ Yes they do.  the a0 terms equal 1 and 0.5 would be half that which matches with the avg height.
+The aN term are symmetric around zero. Centered waves are antsymmetric so the aN numbers come out to be zero.
+
+2. Which signals overshoot, by how much, and why not the others?
+
+the square wave over shoots so does they ramp wave. By 0.09 and 0.27 respectively. The triable wave does not at all because there are no cliffs it never over shoots.
+
+
+3. With more terms ($N$), what gets better, and what does not?
+
+the fit is better and tighter. Right next to each cliff the overshoot 
+spkie get squeezed into a very think narrow needle on the edge.
+
+The height of the spike never goes away no matter what we try.
