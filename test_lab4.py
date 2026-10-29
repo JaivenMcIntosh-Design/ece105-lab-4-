@@ -71,3 +71,10 @@ hand. Ideas (pick one, or your own):
 Name it test_something, run pytest, and see it pass. Then break your
 code on purpose (change a sign in fs): does your test catch it?
 """
+def test_fs_periodicity():
+    """Property test: fs repeats every 2*pi."""
+    x = np.linspace(-np.pi, np.pi, 200)
+    a0, a, b = coefficients(square, 10)
+    y1 = fs(x, a0, a, b)
+    y2 = fs(x + 2 * np.pi, a0, a, b)
+    assert y1 == pytest.approx(y2, abs=1e-10)
