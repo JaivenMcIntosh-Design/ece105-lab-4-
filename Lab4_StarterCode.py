@@ -129,13 +129,17 @@ Example: fs(x, 1.0, np.array([0.0]), np.array([2.0])) returns
 0.5 + 2 sin(x), at every point of x
 """
 # The sum of the first len(a) terms of the Fourier series, at x
+# The sum of the first len(a) terms of the Fourier series, at x
 def fs(x, a0, a, b):
-    # 1. n
-    pass
-    # 2. terms
-    pass
-    # 3. return (replace np.zeros_like(x))
-    return np.zeros_like(x)
+    # 1. n: 1, 2, ..., N where N = len(a)
+    n = np.arange(1, len(a) + 1)
+
+    # 2. terms: shape (x.size, N)
+    angle = x[:, None] * n
+    terms = a * np.cos(angle) + b * np.sin(angle)
+
+    # 3. a0 / 2 plus the sum across terms for each point (axis=1)
+    return a0 / 2 + terms.sum(axis=1)
 
 # Plot each signal (black) and its Fourier sums, N terms for each N
 def plot_fourier(signals, coefs, Ns, filename):
